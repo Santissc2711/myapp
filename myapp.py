@@ -95,7 +95,7 @@ if modo_seleccionado == "Individual":
         # open a file, where you stored the pickled data
 
         nombreArchivo = 'Modelo_lost.pkl'
-        modeloCargado = pickle.load(open(nombreArchivo, 'rb'))
+        modelo_cargado = pickle.load(open(nombreArchivo, 'rb'))
         
       
       
@@ -137,7 +137,7 @@ if modo_seleccionado == "Individual":
         #cargar el mejor modelo
         # open a file, where you stored the pickled data
         nombreArchivo = 'Modelo_rating.pkl'
-        modeloCargado = pickle.load(open(nombreArchivo, 'rb'))
+        modelo_cargado = pickle.load(open(nombreArchivo, 'rb'))
 
         #Predicccion con el dataframe creado
         prediccion = modelo_cargado.predict(min_max_scaler.transform(df))
@@ -165,7 +165,7 @@ elif modo_seleccionado == "Grupal":
             st.header("Prediccion en la incidencia de victoria, 0 tiene incidencia y 1 no tiene incidencia")
             # Seleccionar el modelo
             nombreArchivo = 'Modelo_lost.pkl'
-            modeloCargado = pickle.load(open(nombreArchivo, 'rb'))
+            modelo_cargado = pickle.load(open(nombreArchivo, 'rb'))
             min_max_scaler.fit(dataset[['original_rating', 'goals', 'assists', 'shots_ontarget', 'countattack', 'flow_success']])
             prediccion = modelo_cargado.predict(min_max_scaler.transform(df))
              # Mostrar la predicción
@@ -175,7 +175,7 @@ elif modo_seleccionado == "Grupal":
         else:
             st.header("Prediccion en el puntage general")
             nombreArchivo = 'Modelo_rating.pkl'
-            modeloCargado = pickle.load(open(nombreArchivo, 'rb'))
+            modelo_cargado = pickle.load(open(nombreArchivo, 'rb'))
             min_max_scaler.fit(dataset[['goals','assists','shots_ontarget','chances2score','drib_success','keypasses','touches',
                                     'crosses_acc','grduels_w','aerials_w','wasfouled','tackles','tballs_acc',
                                     'rcards','countattack','flow_centrality','flow_success','betweenness2goals','lost']])
