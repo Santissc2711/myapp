@@ -164,7 +164,7 @@ elif modo_seleccionado == "Grupal":
             st.header("Prediccion en la incidencia de victoria, 0 tiene incidencia y 1 no tiene incidencia")
             # Seleccionar el modelo
             nombreArchivo = 'Modelo_lost.pkl'
-          modeloCargado = pickle.load(open(nombreArchivo, 'rb'))
+            modeloCargado = pickle.load(open(nombreArchivo, 'rb'))
             min_max_scaler.fit(dataset[['original_rating', 'goals', 'assists', 'shots_ontarget', 'countattack', 'flow_success']])
             prediccion = modelo_cargado.predict(min_max_scaler.transform(df))
              # Mostrar la predicción
