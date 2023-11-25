@@ -90,7 +90,7 @@ if modo_seleccionado == "Individual":
         #cargar el mejor modelo
     
         # open a file, where you stored the pickled data
-        file = open('C:/Users/santi/OneDrive/Escritorio/Modelo_lost.pkl', 'rb')
+        file = open('https://github.com/Santissc2711/myapp/blob/main/Modelo_lost.pkl', 'rb')
         # dump information to that file
         modelo_cargado = pickle.load(file)
         file.close()
@@ -161,7 +161,7 @@ elif modo_seleccionado == "Grupal":
         if opcion_seleccionada == "Incidencia en la victoria":
             st.header("Prediccion en la incidencia de victoria, 0 tiene incidencia y 1 no tiene incidencia")
             # Seleccionar el modelo
-            file = open('C:/Users/santi/OneDrive/Escritorio/Modelo_lost.pkl', 'rb')
+            file = open('https://github.com/Santissc2711/myapp/blob/main/Modelo_lost.pkl', 'rb')
             # añadir el moelo a una variable
             modelo_cargado = pickle.load(file)
             file.close()
