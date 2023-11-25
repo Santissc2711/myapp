@@ -2,7 +2,6 @@
 import streamlit as st
 import pandas as pd
 import sklearn
-import pickle
 from sklearn.preprocessing import MinMaxScaler
 
 dataset = pd.read_csv('C:/Users/santi/Downloads/data_football_ratings.csv',sep=",")
