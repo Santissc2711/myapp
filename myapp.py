@@ -131,7 +131,7 @@ if modo_seleccionado == "Individual":
 
         #cargar el mejor modelo
         # open a file, where you stored the pickled data
-        file = open('C:/Users/santi/OneDrive/Escritorio/Modelo_rating.pkl', 'rb')
+        file = open('https://github.com/Santissc2711/myapp/blob/main/Modelo_rating.pkl', 'rb')
         # dump information to that file
         
         modelo_cargado = pickle.load(file)
@@ -173,7 +173,7 @@ elif modo_seleccionado == "Grupal":
 
         else:
             st.header("Prediccion en el puntage general")
-            file = open('C:/Users/santi/OneDrive/Escritorio/Modelo_rating.pkl', 'rb')
+            file = open('https://github.com/Santissc2711/myapp/blob/main/Modelo_rating.pkl', 'rb')
             modelo_cargado = pickle.load(file)
             file.close()
             min_max_scaler.fit(dataset[['goals','assists','shots_ontarget','chances2score','drib_success','keypasses','touches',
