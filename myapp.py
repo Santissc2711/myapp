@@ -62,6 +62,8 @@ opcion_seleccionada = st.sidebar.selectbox("Seleccione variable",["Incidencia en
 datos_ingresados = []
 
 
+
+
 # Mostrar contenido basado en la opción seleccionada
 if modo_seleccionado == "Individual":
     if opcion_seleccionada == "Incidencia en la victoria":
@@ -90,10 +92,12 @@ if modo_seleccionado == "Individual":
         #cargar el mejor modelo
     
         # open a file, where you stored the pickled data
-        file = open('https://github.com/Santissc2711/myapp/blob/main/Modelo_lost.pkl', 'rb')
-        # dump information to that file
-        modelo_cargado = pickle.load(file)
-        file.close()
+
+        nombreArchivo = 'Modelo_lost.pkl'
+        modeloCargado = pickle.load(open(nombreArchivo, 'rb'))
+        
+      
+      
         #Predicccion con el dataframe creado
         prediccion = modelo_cargado.predict(min_max_scaler.transform(df))
         
@@ -131,11 +135,9 @@ if modo_seleccionado == "Individual":
 
         #cargar el mejor modelo
         # open a file, where you stored the pickled data
-        file = open('https://github.com/Santissc2711/myapp/blob/main/Modelo_rating.pkl', 'rb')
-        # dump information to that file
-        
-        modelo_cargado = pickle.load(file)
-        file.close()
+        nombreArchivo = 'Modelo_rating.pkl'
+        modeloCargado = pickle.load(open(nombreArchivo, 'rb'))
+
         #Predicccion con el dataframe creado
         prediccion = modelo_cargado.predict(min_max_scaler.transform(df))
         
@@ -161,10 +163,8 @@ elif modo_seleccionado == "Grupal":
         if opcion_seleccionada == "Incidencia en la victoria":
             st.header("Prediccion en la incidencia de victoria, 0 tiene incidencia y 1 no tiene incidencia")
             # Seleccionar el modelo
-            file = open('https://github.com/Santissc2711/myapp/blob/main/Modelo_lost.pkl', 'rb')
-            # añadir el moelo a una variable
-            modelo_cargado = pickle.load(file)
-            file.close()
+            nombreArchivo = 'Modelo_lost.pkl'
+          modeloCargado = pickle.load(open(nombreArchivo, 'rb'))
             min_max_scaler.fit(dataset[['original_rating', 'goals', 'assists', 'shots_ontarget', 'countattack', 'flow_success']])
             prediccion = modelo_cargado.predict(min_max_scaler.transform(df))
              # Mostrar la predicción
@@ -173,9 +173,8 @@ elif modo_seleccionado == "Grupal":
 
         else:
             st.header("Prediccion en el puntage general")
-            file = open('https://github.com/Santissc2711/myapp/blob/main/Modelo_rating.pkl', 'rb')
-            modelo_cargado = pickle.load(file)
-            file.close()
+            nombreArchivo = 'Modelo_rating.pkl'
+            modeloCargado = pickle.load(open(nombreArchivo, 'rb'))
             min_max_scaler.fit(dataset[['goals','assists','shots_ontarget','chances2score','drib_success','keypasses','touches',
                                     'crosses_acc','grduels_w','aerials_w','wasfouled','tackles','tballs_acc',
                                     'rcards','countattack','flow_centrality','flow_success','betweenness2goals','lost']])
